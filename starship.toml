@@ -5,18 +5,22 @@ $hostname\
 $sudo\
 $username\
 [](bg:black fg:color_fg1)\
-[](bg:fase2_bg fg:black)\
+[](bg:folder_bg fg:black)\
 $directory\
-[](fg:fase2_bg bg:black)\
+$git_branch\
+$git_status\
 [](fg:black bg:fase3_bg)\
 $time\
 $status\
 [ ](fg:fase3_bg)\
 \n$character
 """
+# [](fg:folder_bg bg:black)\
+# [](fg:folder_bg bg:black)\
+# [](fg:black bg:fase3_bg)\
 # [](fg:#8bd450 bg:#734f9a)\
 # $git_branch\
-# $git_status\
+
 # [](fg:#734f9a bg:#FFB346)\
 # $aws\
 # [](fg:#FFB346 bg:#3f6d4e)\
@@ -43,12 +47,12 @@ $status\
 # """
 # Disable the blank line at the start of the prompt
 
-
 add_newline = false
-
 palette = 'd00m4n'
 
 [palettes.d00m4n]
+git_text='white'
+git_bg='black'
 color_fg1 = '#9d9d9d'
 color_fg2 = '#9d9d9d'
 color_bg1 = '#0c0c0c'
@@ -62,12 +66,14 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 fase1_text= "#6a6a6a"
 fase1_bg='#9d9d9d'
-fase2_text= "#ffffff"
-fase2_bg='#6a6a6a'
+folder_text= "#ffffff"
+folder_bg='#6a6a6a'
 fase3_text= "#ffffff"
 fase3_bg='#16a687'
 debian="#c70236"
 windows="#0277d5"
+success_color="green"
+error_color="red"
 
 [username]
 show_always = true
@@ -79,24 +85,20 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
-
+success_symbol = '[](bold fg:success_color)'
+error_symbol = '[](bold fg:error_color)'
 
 [os]
 disabled = false
+
 [os.symbols]
 Windows = "[󰖳 ](bold fg:windows bg:fase1_bg)"
 Debian = "[󰣚 ](bold fg:debian bg:fase1_bg)"
 
 
 [directory]
-style = "bg:fase2_bg"
-format = "[ $path ]($style)"
+style = "bg:folder_bg"
+format = "[ $path ]($style)[](fg:folder_bg)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -125,7 +127,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = " "
-style = "bg:#734f9a"
+style = "bg:git_bg fg:git_fg"
 truncation_length = 8
 format = '[ $symbol $branch ]($style)'
 
@@ -138,7 +140,7 @@ up_to_date = '✅'
 untracked = '🤷'
 stashed = '📦'
 modified = '📝'
-style = "bg:#734f9a"
+style = "bg:git_bg fg:git_fg"
 renamed = '👅'
 deleted = '🗑'
 format = '[$all_status$ahead_behind ]($style)'
