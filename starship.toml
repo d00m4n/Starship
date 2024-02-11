@@ -67,6 +67,8 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 hostanduser_text= "#6a6a6a"
 hostanduser_bg='#9d9d9d'
+root_text= "#cd3131"
+root_bg='#9d9d9d'
 folder_text= "#ffffff"
 folder_bg='#6a6a6a'
 fase3_text= "#ffffff"
@@ -86,7 +88,7 @@ disabled = false
 [username]
 show_always = false
 style_user = "bg:hostanduser_bg fg:hostanduser_text"
-style_root = "bg:#9A348E"
+style_root = "bg:root_bg fg:root_text"
 format = '[ $user ]($style)'
 disabled = false
 
