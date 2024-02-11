@@ -13,6 +13,7 @@ $git_status\
 $time\
 $status\
 [ ](fg:fase3_bg)\
+\n$localip\
 \n$character
 """
 # [](fg:folder_bg bg:black)\
@@ -64,20 +65,27 @@ color_orange = '#d65d0e'
 color_purple = '#b16286'
 color_red = '#cc241d'
 color_yellow = '#d79921'
-fase1_text= "#6a6a6a"
-fase1_bg='#9d9d9d'
+hostanduser_text= "#6a6a6a"
+hostanduser_bg='#9d9d9d'
 folder_text= "#ffffff"
 folder_bg='#6a6a6a'
 fase3_text= "#ffffff"
 fase3_bg='#16a687'
 debian="#c70236"
 windows="#0277d5"
-success_color="green"
+success_color="#094a0b"
 error_color="red"
+ip_color="darkgrey"
+pre_color="#094a0b"
+
+[localip]
+ssh_only = true
+format = '[├](fg:pre_color)\[ [$localipv4](fg:ip_color) \]'
+disabled = false
 
 [username]
-show_always = true
-style_user = "bg:fase1_bg fg:fase1_text"
+show_always = false
+style_user = "bg:hostanduser_bg fg:hostanduser_text"
 style_root = "bg:#9A348E"
 format = '[ $user ]($style)'
 disabled = false
@@ -85,15 +93,15 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:success_color)'
-error_symbol = '[](bold fg:error_color)'
+success_symbol = '[└](pre_color)[](bold fg:success_color)'
+error_symbol = '[└](pre_color)[](bold fg:error_color)'
 
 [os]
 disabled = false
 
 [os.symbols]
-Windows = "[󰖳 ](bold fg:windows bg:fase1_bg)"
-Debian = "[󰣚 ](bold fg:debian bg:fase1_bg)"
+Windows = "[󰖳 ](bold fg:windows bg:hostanduser_bg)"
+Debian = "[󰣚 ](bold fg:debian bg:hostanduser_bg)"
 
 
 [directory]
@@ -164,6 +172,6 @@ map_symbol = true
 disabled = false
 
 [hostname]
-style= "bg:fase1_bg fg:fase1_text"
+style= "bg:hostanduser_bg fg:hostanduser_text"
 format = "[󰟀 $hostname ]($style)"
 disabled = false
