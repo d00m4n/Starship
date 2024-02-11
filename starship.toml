@@ -1,0 +1,167 @@
+format = """
+[](bg:color_bg1 fg:color_fg1)\
+[$os](bg:color_bg1 fg:color_fg1)\
+$hostname\
+$sudo\
+$username\
+[](bg:black fg:color_fg1)\
+[](bg:fase2_bg fg:black)\
+$directory\
+[](fg:fase2_bg bg:black)\
+[](fg:black bg:fase3_bg)\
+$time\
+$status\
+[ ](fg:fase3_bg)\
+\n$character
+"""
+# [](fg:#8bd450 bg:#734f9a)\
+# $git_branch\
+# $git_status\
+# [](fg:#734f9a bg:#FFB346)\
+# $aws\
+# [](fg:#FFB346 bg:#3f6d4e)\
+# $c\
+# $elixir\
+# $elm\
+# $golang\
+# $gradle\
+# $haskell\
+# $java\
+# $julia\
+# $nodejs\
+# $nim\
+# $rust\
+# $scala\
+# $python\
+# $sudo\
+# [](fg:#3f6d4e bg:#965fd4)\
+# $docker_context\
+# [](fg:#965fd4 bg:#16a687)\
+# $time\
+# $status\
+# [ ](fg:#16a687)\
+# """
+# Disable the blank line at the start of the prompt
+
+
+add_newline = false
+
+palette = 'd00m4n'
+
+[palettes.d00m4n]
+color_fg1 = '#9d9d9d'
+color_fg2 = '#9d9d9d'
+color_bg1 = '#0c0c0c'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+fase1_text= "#6a6a6a"
+fase1_bg='#9d9d9d'
+fase2_text= "#ffffff"
+fase2_bg='#6a6a6a'
+fase3_text= "#ffffff"
+fase3_bg='#16a687'
+debian="#c70236"
+windows="#0277d5"
+
+[username]
+show_always = true
+style_user = "bg:fase1_bg fg:fase1_text"
+style_root = "bg:#9A348E"
+format = '[ $user ]($style)'
+disabled = false
+
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+
+[os]
+disabled = false
+[os.symbols]
+Windows = "[󰖳 ](bold fg:windows bg:fase1_bg)"
+Debian = "[󰣚 ](bold fg:debian bg:fase1_bg)"
+
+
+[directory]
+style = "bg:fase2_bg"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Public" = " "
+"Templates" = " "
+"Videos" = " "
+"Desktop" = " "
+Home = "󱂵 "
+"Root" = "🏠 "
+# disabled=false
+
+[docker_context]
+symbol = " "
+style = "bg:#965fd4"
+format = '[ $symbol $context ]($style) $path'
+
+[python]
+symbol = " "
+style = "bg:#3f6d4e"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = " "
+style = "bg:#734f9a"
+truncation_length = 8
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+conflicted = '🏳'
+ahead = '⏩${count}'
+behind = '🐌${count}'
+diverged = '😵 ⇡${ahead_count}⇣${behind_count}'
+up_to_date = '✅'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+style = "bg:#734f9a"
+renamed = '👅'
+deleted = '🗑'
+format = '[$all_status$ahead_behind ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#3f6d4e"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%T" # Hour:Minute Format
+style = "bg:#16a687"
+format = '[ 🕐 $time ]($style)'
+
+[status]
+style = 'bg:#16a687'
+symbol = '❌ '
+format = '[$symbol]($style)'
+map_symbol = true
+disabled = false
+
+[hostname]
+style= "bg:fase1_bg fg:fase1_text"
+format = "[󰟀 $hostname ]($style)"
+disabled = false
