@@ -1,2 +1,2 @@
-# startship
+# starship
 Theme for Starship prompt
